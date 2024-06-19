@@ -2,24 +2,23 @@ const express = require('express')
 
 const errorMiddleware = require('./middlewares/error-middleware')
 const notFound = require('./middlewares/notfound')
-<<<<<<< HEAD
 const loginApi = require('./features/login')
-=======
 const register = require('./features/register')
->>>>>>> 0fa7222dca1b4e0a7a111cce572ec094d7495d6c
+const getUser = require('./get/user')
+
 
 
 
 const app = express()
 
-<<<<<<< HEAD
+
 app.use("/login", loginApi)
-=======
 app.use('/register',register)
->>>>>>> 0fa7222dca1b4e0a7a111cce572ec094d7495d6c
+
 
 app.use(errorMiddleware)
 app.use(notFound)
+app.use(getUser)
 
 
 const port = 8000
