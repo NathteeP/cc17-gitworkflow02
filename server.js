@@ -2,14 +2,19 @@ const express = require('express')
 
 const errorMiddleware = require('./middlewares/error-middleware')
 const notFound = require('./middlewares/notfound')
+const loginApi = require('./features/login')
 const register = require('./features/register')
 const getUser = require('./get/user')
 
 
 
+
 const app = express()
 
+
+app.use("/login", loginApi)
 app.use('/register',register)
+
 
 app.use(errorMiddleware)
 app.use(notFound)
